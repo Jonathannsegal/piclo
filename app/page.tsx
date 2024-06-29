@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="sm:w-1/2 w-full h-full relative">
-                <video className="w-full h-full object-cover rounded-2xl sm:rounded-3xl" preload="auto" autoPlay loop muted>
+                <video className="w-full h-full object-cover rounded-2xl sm:rounded-3xl" preload="auto" autoPlay loop muted playsInline>
                   <source src="https://xcynaenntclbctlh.public.blob.vercel-storage.com/hero-WivbCBKLrnUNbFbhTer6yz1llSc9Rh.webm" type="video/webm" />
                   Your browser does not support the video tag.
                 </video>
