@@ -40,8 +40,8 @@ export default function SignUp() {
   };
 
   return (
-    <div className="w-screen flex flex-col justify-center items-center h-screen bg-white">
-      <div className="flex justify-center w-full mb-8">
+    <div className="w-screen flex flex-col items-center h-screen bg-white">
+      <div className="flex justify-center w-full my-12">
         <Image
           src="/stamp.png"
           alt="Hero Image"

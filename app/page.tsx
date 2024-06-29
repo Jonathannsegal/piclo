@@ -46,7 +46,7 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <Link href="/signup" className="block self-center sm:hidden mt-5 mb-32 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
+              <Link href="/signup" className="block self-center sm:hidden mt-5 mb-24 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
                 <button>
                   Sign Up
                 </button>
