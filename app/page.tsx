@@ -6,7 +6,7 @@ export default function Home() {
     <div className="w-screen flex justify-center">
       <div className="max-w-max min-[2000px]:max-w-7xl">
         <main className="flex flex-col items-center h-screen w-full">
-          <header className="w-full pt-6 px-20 -mb-10 sm:-mb-32 flex justify-center sm:justify-start relative">
+          <header className="w-full pt-6 px-8 sm:px-20 -mb-36 sm:-mb-32 flex justify-start relative">
             <Image
               src="/stamp.png"
               alt="Hero Image"
@@ -15,11 +15,11 @@ export default function Home() {
               className="cover"
             />
           </header>
-          <section className="w-full h-full flex items-center justify-center">
-            <div className="h-5/6 w-5/6 mb-5 flex flex-col sm:flex-row">
+          <section className="w-full h-screen flex items-center justify-center">
+            <div className="h-5/6 w-11/12 sm:w-5/6 mb-5 flex flex-col sm:flex-row">
               <div className="sm:w-1/2 w-full mr-8 flex items-center mb-0 sm:mb-12">
                 <div className="flex flex-col items-left">
-                  <h1 className="sm:text-6xl text-4xl sm:text-left text-center tracking-wider sm:leading-none leading-10 font-bold mb-4 sm:w-5/6 w-full">
+                  <h1 className="sm:text-6xl text-4xl text-left self-end sm:self-start tracking-wider sm:leading-none leading-10 font-bold mb-4  w-4/6 sm:w-5/6">
                     Your next trip starts here.
                   </h1>
                   <div className="flex flex-wrap flex-row sm:flex-col space-y-0 sm:space-y-2 space-x-2 sm:space-x-0 mb-5 sm:mb-8 font-medium text-sm sm:text-2xl justify-center">
@@ -46,8 +46,8 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <Link href="/signup">
-                <button className="block sm:hidden self-center mt-5 bg-blue-500 text-white py-3 px-4 w-40 rounded-full text-xl hover:bg-blue-600">
+              <Link href="/signup" className="block self-center sm:hidden mt-5 mb-32 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
+                <button>
                   Sign Up
                 </button>
               </Link>
