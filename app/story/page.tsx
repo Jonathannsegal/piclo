@@ -41,33 +41,34 @@ export default function Story() {
           <section className="w-full flex flex-col items-center text-center space-y-12">
             <div className="w-full">
               <h2 className="text-3xl font-bold text-sky-600 mb-4">
-                Our communities are full of amazing and interesting places.
-              </h2>
+                🌟 Explore Personalized Recommendations from Friends              </h2>
               <p className="text-lg mb-4">
-                How often do you go to the new spot down the street? When traveling, how often do you wander from the main path?
+                Tired of sifting through endless reviews and recommendations? Look no further! With Piclo, you get tailored suggestions from the people who know you best—your friends! Whether it's that cozy coffee shop around the corner or the hidden gem in a far-off beachfront town, your pals have got you covered.
               </p>
             </div>
             <div className="w-full">
               <h2 className="text-3xl font-bold text-sky-600 mb-4">
-                Often, it's hard to know where do go.
+                📌 Pin Your Adventures
               </h2>
               <p className="text-lg mb-4">
-                In the age of information overload, knowing what your friends are saying about that new coffee shop or what future friends a lot like you in France say about the local bakery would be really helpful.              </p>
-            </div>
-            <div className="w-full">
-              <h2 className="text-3xl font-bold text-sky-600 mb-4">
-                Piclo is your ultimate travel guide
-              </h2>
-              <p className="text-lg mb-4">
-                We make tools that connect you with your friends, your city, and that beachfront town youve been wanting to visit.
+                Remember that charming little café where you had the best latte ever? Or that breathtaking viewpoint during your last road trip? Piclo lets you pin these special moments on your personal map. Add photos, jot down notes, and relive your adventures whenever you want!
               </p>
             </div>
             <div className="w-full">
               <h2 className="text-3xl font-bold text-sky-600 mb-4">
-                Crafting This for All of Us
+                👥 Travel Together, Share Memories
               </h2>
               <p className="text-lg mb-4">
-                Planning your trips can be a challenge when orchestrating a lot of people and various plans. We know because we're the ones stuck planning.              </p>
+                Piclo isn't just about places; it's about people too! Connect with friends who've been there, done that. Share travel stories, swap tips, and maybe even plan your next escapade together. Because memories are better when shared!
+              </p>
+            </div>
+            <div className="w-full">
+              <h2 className="text-3xl font-bold text-sky-600 mb-4">
+                🌴 From Weekend Plans to Takeout Cravings
+              </h2>
+              <p className="text-lg mb-4">
+                Whether you're seeking weekend inspiration or craving your favorite takeout joint, Piclo has your back. It's the go-to app for discovering experiences—big or small. So go ahead, explore, connect, and make every moment count!
+              </p>
               <div className="grid grid-cols-2 gap-4">
                 {teamMembers.map(member => (
                   <div key={member.id} className="relative group">
@@ -92,7 +93,7 @@ export default function Story() {
             </div>
             <div className="w-full">
               <h2 className="text-3xl font-bold text-sky-600 mb-4">
-                We think that there is a better way to explore
+                🗺️ We think that there is a better way to explore
               </h2>
               <p className="text-lg mb-4">
                 We beleive that the best way to explore is to connect with the local vibe and plan with your friends!
