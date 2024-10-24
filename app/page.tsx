@@ -42,9 +42,14 @@ export default function Home() {
               </div>
               <div className="sm:w-1/2 w-full h-full relative">
                 <video className="w-full h-full object-cover rounded-2xl sm:rounded-3xl" preload="auto" autoPlay loop muted playsInline>
-                  <source src="/hero.mp4" type="video/webm" />
+                  <source src="/hero.webm" type="video/webm" />
+                  <source src="/hero.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                {/* <video className="w-full h-full object-cover rounded-2xl sm:rounded-3xl" preload="auto" autoPlay loop muted playsInline>
+                  <source src="/hero.mp4" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video> */}
               </div>
               <Link href="/signup" className="block self-center sm:hidden mt-5 mb-24 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
                 <button>

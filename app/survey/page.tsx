@@ -126,7 +126,7 @@ export default function Survey() {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  rows="5"
+                  rows={5}
                 />
               </div>
               <button
