@@ -44,7 +44,7 @@ interface RankedItem {
 interface Location {
   id: string;
   name: string;
-  state?: string;
+  state?: string | undefined;
   display: string;
 }
 
