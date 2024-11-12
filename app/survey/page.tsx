@@ -574,6 +574,8 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
     });
   };
 
+  const [otherText, setOtherText] = useState<string>('');
+
   const renderCheckboxGroup = (
     options: string[],
     state: CheckboxState,
@@ -608,9 +610,9 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
             <input
               type="text"
               placeholder="Please specify..."
-              value={typeof state['OtherText'] === 'string' ? state['OtherText'] : ''}
+              value={otherText}
               onChange={(e) => {
-                setter((prev) => ({ ...prev, OtherText: e.target.value }));
+                setOtherText(e.target.value);
                 handleInputChange(
                   formField,
                   Object.entries(state)
