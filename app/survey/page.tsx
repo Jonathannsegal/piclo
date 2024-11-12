@@ -608,7 +608,7 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
             <input
               type="text"
               placeholder="Please specify..."
-              value={state['OtherText'] || ''}
+              value={typeof state['OtherText'] === 'string' ? state['OtherText'] : ''}
               onChange={(e) => {
                 setter((prev) => ({ ...prev, OtherText: e.target.value }));
                 handleInputChange(
