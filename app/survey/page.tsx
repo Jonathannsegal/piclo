@@ -378,7 +378,7 @@ const LocationSelector = memo(({
                   name: city,
                   state: state,
                   display: `${city}, ${state}`
-                };
+                } as Location; // Explicitly cast as Location here
               }
             }
             return null;
