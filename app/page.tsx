@@ -33,7 +33,7 @@ export default function Home() {
                       <span role="img" aria-label="bell" className="mr-0 sm:mr-2">🔔</span> Updates coming soon
                     </div>
                   </div>
-                  <Link href="/signup">
+                  <Link href="/survey">
                     <button className="hidden sm:block bg-blue-500 text-white py-3 px-4 w-40 rounded-full text-xl hover:bg-blue-600">
                       Sign Up
                     </button>
@@ -51,7 +51,7 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video> */}
               </div>
-              <Link href="/signup" className="block self-center sm:hidden mt-5 mb-24 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
+              <Link href="/survey" className="block self-center sm:hidden mt-5 mb-24 bg-blue-500 text-white py-3 px-10 rounded-full text-sm hover:bg-blue-600">
                 <button>
                   Sign Up
                 </button>
