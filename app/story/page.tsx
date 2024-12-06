@@ -4,13 +4,17 @@ import Link from "next/link";
 
 const teamMembers = [
   {
-    id: 1, src: "/Khyatee.jpg", name: "Khyatee Tewari", title: "CEO", description:
+    id: 1, src: "/Khyatee.jpg", name: "Khyatee Tewari", title: "Strategist", description:
       "..."
   },
   {
-    id: 2, src: "/Jonathan.jpg", name: "Jonathan Segal", title: "Cofounder and CTO", description:
+    id: 2, src: "/Jonathan.jpg", name: "Jonathan Segal", title: "Developer", description:
       "I am always planning my next trip, and when I'm not, I am either running, taking pictures, or working on fun coding projects."
   },
+  {
+    id: 3, src: "/Ashley.jpg", name: "Ashley Paik", title: "Designer", description:
+      "I love discovering new places to explore, whether it's finding the best cafes or hidden study spots on campus. I'm also a matcha enthusiast, enjoy thrifting for unique pieces, and am passionate about designing intuitive user experiences"
+  }
 ];
 
 const ideas = [
@@ -69,7 +73,7 @@ export default function Story() {
               <p className="text-lg mb-4">
                 Whether you're seeking weekend inspiration or craving your favorite takeout joint, Piclo has your back. It's the go-to app for discovering experiences—big or small. So go ahead, explore, connect, and make every moment count!
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {teamMembers.map(member => (
                   <div key={member.id} className="relative group">
                     <Image
@@ -83,7 +87,7 @@ export default function Story() {
                       <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div>
                           <h2 className="text-md font-bold mb-2">{member.name}, {member.title}</h2>
-                          <p>{member.description}</p>
+                          <p className="text-xs">{member.description}</p>
                         </div>
                       </div>
                     )}
