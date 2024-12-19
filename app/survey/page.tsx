@@ -5,20 +5,83 @@ import { Search, X, ArrowLeft, ChevronDown, GripVertical } from 'lucide-react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycby01-1MV7vzLVNUBzKMp9eGWfyGJ9CD6SUhabQiStTKwob-lu2dJWMkcEKvY4-sYc6CsA/exec";
-
-const saveToGoogleSheets = async (data: Partial<FormData>) => {
+const saveToGoogleSheets = async (data: FormData) => {
   try {
-    await fetch(GOOGLE_SHEETS_URL, {
-      method: "POST",
-      body: JSON.stringify(data),
+    console.log('Attempting to save data:', data);
+
+    // Validate required fields
+    if (!data.email || !data.name || !data.phone) {
+      throw new Error('Missing required fields: email, name, and phone are required');
+    }
+
+    // Clean data before sending
+    const cleanedData = {
+      ...data,
+      // Handle null/undefined values
+      location: data.location || '',
+      // Convert number values to strings if they're 0
+      culturalImportance: data.culturalImportance || '',
+      purchaseLikelihood: data.purchaseLikelihood || '',
+      freeTrialImportance: data.freeTrialImportance || '',
+      techSavviness: data.techSavviness || '',
+      uiIntuitiveness: data.uiIntuitiveness || '',
+      // Ensure arrays are joined as strings
+      travelMethod: Array.isArray(data.travelMethod) ? data.travelMethod.join(', ') : data.travelMethod,
+      travelerType: Array.isArray(data.travelerType) ? data.travelerType.join(', ') : data.travelerType,
+      destinationType: Array.isArray(data.destinationType) ? data.destinationType.join(', ') : data.destinationType,
+      sharingMethod: Array.isArray(data.sharingMethod) ? data.sharingMethod.join(', ') : data.sharingMethod
+    };
+
+    const response = await fetch('/api/submit-form', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify(cleanedData),
     });
-    console.log("Data saved to Google Sheets successfully!");
+
+    // Log raw response for debugging
+    const responseText = await response.text();
+    console.log('Raw API Response:', responseText);
+
+    // Try to parse the response as JSON
+    let responseData;
+    try {
+      responseData = JSON.parse(responseText);
+    } catch (e) {
+      console.error('Failed to parse API response:', e);
+      throw new Error('Invalid response format from server');
+    }
+
+    // Check for errors
+    if (!response.ok || !responseData.success) {
+      console.error('Response error:', {
+        status: response.status,
+        data: responseData
+      });
+
+      // Throw specific error message if available
+      throw new Error(
+        responseData.details ||
+        responseData.error ||
+        `Server error: ${response.status}`
+      );
+    }
+
+    // Log success
+    console.log('Data saved successfully:', responseData);
+
+    return responseData.data;
+
   } catch (error) {
-    console.error("Error saving data to Google Sheets:", error);
+    // Log detailed error information
+    console.error('Detailed save error:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined
+    });
+
+    // Re-throw the error for the calling function to handle
+    throw error;
   }
 };
 
