@@ -5,7 +5,7 @@ import { Search, X, ArrowLeft, ChevronDown, GripVertical } from 'lucide-react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbw8zfYbUi_UJMZssYTPQQ5PrKwmT7gELIEp9aMSjkg7ueMO1vDsA5p_ZFeHy_Hu-jcQig/exec";
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycby01-1MV7vzLVNUBzKMp9eGWfyGJ9CD6SUhabQiStTKwob-lu2dJWMkcEKvY4-sYc6CsA/exec";
 
 const saveToGoogleSheets = async (data: Partial<FormData>) => {
   try {
