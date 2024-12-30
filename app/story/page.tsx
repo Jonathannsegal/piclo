@@ -5,7 +5,7 @@ import Link from "next/link";
 const teamMembers = [
   {
     id: 1, src: "/Khyatee.jpg", name: "Khyatee Tewari", title: "Strategist", description:
-      "..."
+      "I love exploring new landscapes, camping, and trying food from around the world! In times when I’m not traveling, you’ll find cosied with a hot chocolate in a cute cafe!"
   },
   {
     id: 2, src: "/Jonathan.jpg", name: "Jonathan Segal", title: "Developer", description:
