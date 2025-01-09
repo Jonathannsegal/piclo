@@ -125,6 +125,7 @@ interface FormData {
   destinationType: string;
   planningMethod: string;
   travelGoal: string;
+  discovery: string;
   culturalImportance: number;
   planningStyle: string;
   sharingMethod: string;
@@ -193,9 +194,10 @@ interface ValidationErrors {
 const RATING_SCALE = [1, 2, 3, 4, 5];
 const FREQUENCY_OPTIONS = ['1-2 times', '3-4 times', '5-6 times', '7+ times'];
 const TRAVEL_METHODS = ['Plane', 'Car', 'Train', 'Bus'];
+const DISCOVERY = ['Go places my friends loved', 'Find new places around me', 'Use one app to manage my whole trip', 'Sync photos to everyone on the trip', 'Shared trip playlist'];
 const TRAVELER_TYPES = ['Solo', 'Group', 'Family', 'Couple'];
-const DESTINATION_TYPES = ['Urban', 'Rural', 'Beach', 'Mountain', 'Desert', 'Forrest'];
-const PLANNING_METHODS = ['Travel agency', 'Online booking', 'Spontaneous'];
+const DESTINATION_TYPES = ['Road Trips', 'Beach Retreats', 'Urban Adventures', 'Mountain Escapes', 'Cultural Journeys', 'Historical Sites', 'National Parks', 'Train Trips', 'All-Inclusive Resorts'];
+const PLANNING_METHODS = ['Do you plan yourself in detail? (Excel, Notes, etc.)', 'Do you go with the flow and plan as you go?', 'Use a travel agent or service', 'Do you book pre-made trips on sites like Groupon?'];
 const TRAVEL_GOALS = ['Relaxation', 'Adventure', 'Cultural exploration', 'Work', 'Multiple goals'];
 const PLANNING_STYLES = [
   'Highly structured',
@@ -206,7 +208,7 @@ const PLANNING_STYLES = [
 const SHARING_METHODS = [
   'Social media',
   'Blog',
-  'Private sharing',
+  'Personal Message (WhatsApp, SMS)',
   'Don\'t usually share',
   'Multiple methods'
 ];
@@ -599,6 +601,7 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
   const [expandedSection, setExpandedSection] = useState<string>('lifestyle');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [travelMethodChecks, setTravelMethodChecks] = useState<CheckboxState>({});
+  const [discoveryChecks, setDiscoveryChecks] = useState<CheckboxState>({});
   const [travelerTypeChecks, setTravelerTypeChecks] = useState<CheckboxState>({});
   const [destinationChecks, setDestinationChecks] = useState<CheckboxState>({});
   const [sharingChecks, setSharingChecks] = useState<CheckboxState>({});
@@ -895,7 +898,7 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
 
             <div>
               <label className="block text-sm font-medium mb-2">
-                What types of destinations do you prefer? (select all that apply)
+                What's your ideal vacation? (select all that apply)
               </label>
               {renderCheckboxGroup(DESTINATION_TYPES, destinationChecks, setDestinationChecks, 'destinationType')}
             </div>
@@ -940,9 +943,9 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
           <>
             <div>
               <label className="block text-sm font-medium mb-2">
-                Would you use a map-based travel app for discovering hidden destinations?
+                What travel discovery features do you find valuable?
               </label>
-              {renderSelect('useMapApp', YES_NO, formData.useMapApp)}
+              {renderCheckboxGroup(DISCOVERY, discoveryChecks, setDiscoveryChecks, 'discovery')}
             </div>
 
             <div>
@@ -960,8 +963,7 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
             </div>
 
             {/* Conditionally show additional questions if all Yes/No answers are 'Yes' */}
-            {formData.useMapApp === 'Yes' &&
-              formData.groupPlanning === 'Yes' &&
+            {formData.groupPlanning === 'Yes' &&
               formData.premiumFeatures === 'Yes' && (
                 <>
                   <div>
@@ -1181,6 +1183,7 @@ const EnhancedSurvey = () => {
     culturalImportance: 3,
     planningStyle: '',
     sharingMethod: '',
+    discovery: '',
     localRecommendations: '',
     useMapApp: '',
     groupPlanning: '',
