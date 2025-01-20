@@ -19,6 +19,7 @@ const saveToGoogleSheets = async (data: FormData) => {
       ...data,
       // Handle null/undefined values
       location: data.location || '',
+      isBetaTester: !!data.isBetaTester, // Ensure boolean value
       // Convert number values to strings if they're 0
       culturalImportance: data.culturalImportance || '',
       purchaseLikelihood: data.purchaseLikelihood || '',
@@ -117,6 +118,7 @@ interface FormData {
   email: string;
   phone: string;
   location: Location | null;
+  isBetaTester: boolean;
 
   // Lifestyle Data
   travelFrequency: string;
@@ -294,8 +296,9 @@ const ProfileForm = ({ onNext, formData, setFormData }: ProfileFormProps) => {
   const [errors, setErrors] = useState<ValidationErrors>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+    setFormData({ ...formData, [name]: newValue });
     // Clear error when user starts typing
     if (errors[name as keyof ValidationErrors]) {
       setErrors({ ...errors, [name]: undefined });
@@ -353,6 +356,24 @@ const ProfileForm = ({ onNext, formData, setFormData }: ProfileFormProps) => {
             className={`w-full p-3 border-b ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none`}
           />
           {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <label className="flex items-center space-x-2 cursor-pointer">
+            <input
+              type="checkbox"
+              name="isBetaTester"
+              checked={formData.isBetaTester}
+              onChange={handleChange}
+              className="w-4 h-4 rounded border-gray-300 text-blue-500 focus:ring-blue-500"
+            />
+            <span>Sign up as a beta tester</span>
+          </label>
+          {formData.isBetaTester && (
+            <p className="text-sm text-gray-600">
+              Your survey responses will help us customize your beta testing experience and set up your profile for early access.
+            </p>
+          )}
         </div>
 
         <button
@@ -1172,6 +1193,7 @@ const EnhancedSurvey = () => {
     email: '',
     phone: '',
     location: null,
+    isBetaTester: false,
 
     // Initialize all other form fields with default values
     travelFrequency: '',
