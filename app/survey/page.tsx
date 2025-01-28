@@ -866,11 +866,11 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
     try {
       setIsSubmitting(true);
       await saveToGoogleSheets(formData);
-      alert("Survey submitted successfully!");
       console.log('Submitting survey:', formData);
       // Simulated API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       alert('Survey submitted successfully!');
+      window.location.href = '/';
     } catch (error) {
       console.error('Error submitting survey:', error);
       alert('Failed to submit survey. Please try again.');
@@ -886,7 +886,7 @@ const SurveySection = ({ onBack, formData, setFormData }: SurveySectionProps) =>
       <div className="mt-16 space-y-6">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold">Help Us Improve Your Travel Experience</h1>
-          <p className="text-gray-600 mt-2">Share your preferences and help us create a better travel app</p>
+          <p className="text-gray-600 mt-2">Thanks for the information, we will keep you updated. If you would like to contribute more information that would be greatly appreciated!</p>
         </div>
 
         {/* Lifestyle Section */}
